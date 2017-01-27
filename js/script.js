@@ -1,72 +1,47 @@
-//Онлайн-Карта Google
-function initialize() {
-    var x = 59.938726;
-    var y = 30.322620;
-    var mapOptions = {
-        zoom: 18,
-        center: new google.maps.LatLng(x, y),
-        scrollwheel: false,
-		disableDefaultUI: true
-    }
-    var map = new  google.maps.Map(
-        document.querySelector(".map-script"),
-        mapOptions
-    );
-    var image = "img/map-marker.png";
-    var myLatLng = new google.maps.LatLng(x, y);
-    var beachMarker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        icon: image
-    });
-}
-google.maps.event.addDomListener(window, "load", initialize);
+var link = document.querySelector(".write-us-btn");
+var popup = document.querySelector(".modal-content");
+var close = popup.querySelector(".modal-content-close");
+var form = popup.querySelector(".writeus-form");
+var user_name = popup.querySelector("[name=user-name]");
+var user_email = popup.querySelector("[name=user-email]");
+var user_text = popup.querySelector("textarea");
+var storage = localStorage.getItem("user_name");
+						
+link.addEventListener("click", function(event) {
+	event.preventDefault();
+	popup.classList.add("modal-content-show");
 
-
-//Всплывающая форма
-var link = document.querySelector(".map-btn");
-var popup = document.querySelector(".feedback");
-var form = document.querySelector(".feedback-form");
-var close = popup.querySelector(".feedback-circle-btn");
-var cancel = popup.querySelector(".feedback-cancel");
-var login = popup.querySelector("[name=login]");
-var email = popup.querySelector("[name=email]");
-var text = popup.querySelector("[name=text]");
-var storage = localStorage.getItem("login");
-
-link.addEventListener("click", function (event) {
-    event.preventDefault(event);
-    popup.classList.add("feedback-show");
-    login.focus();
-    if (storage) {
-        login.value = storage;
-    } else {
-        login.focus();
-    }
+	if (storage) {
+		user_name.value = storage;
+		user_email.focus();
+	} else {
+		user_name.focus();
+	}
 });
 
-close.addEventListener("click", function (event) {
-    event.preventDefault(event);
-    popup.classList.remove("feedback-show");
-    popup.classList.remove("feedback-error");
-});
-
-window.addEventListener("keydown", function (event) {
-    if (event.keyCode === 27) {
-        if (popup.classList.contains("feedback-show")) {
-            popup.classList.remove("feedback-show");
-            popup.classList.remove("feedback-error");
-        }
-    }
+close.addEventListener("click", function(event) {
+	event.preventDefault();
+	popup.classList.remove("modal-content-show");
+	popup.classList.remove("writeus-form-error");
 });
 
 form.addEventListener("submit", function(event) {
-  if (!login.value || !email.value || !text.value) {
-    event.preventDefault();
-    popup.classList.remove("feedback-error");
-    popup.offsetWidth = popup.offsetWidth;
-    popup.classList.add("feedback-error");
-  } else {
-    localStorage.setItem("login", login.value);
-  }
+	if (!user_name.value || !user_email.value || !user_text.value) {
+	event.preventDefault();
+		popup.classList.remove("modal-error");
+		popup.offsetWidth = popup.offsetWidth;
+		popup.classList.add("writeus-form-error");
+	} else {
+		localStorage.setItem("user_name", user_name.value);
+	}
 });
+
+window.addEventListener("keydown", function(event) {
+	if (event.keyCode === 27) {
+		if (popup.classList.contains("modal-content-show")) {
+			popup.classList.remove("modal-content-show");
+			popup.classList.remove("writeus-form-error");
+		}
+	}
+});
+	
