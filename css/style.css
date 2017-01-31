@@ -1,11 +1,9 @@
 body {
-	min-width: 1200px;
-	position: relative;
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
 	font-family: "Roboto", "Arial", sans-serif;
-	line-height: 1.5;
+	line-height: 1.5em;
 	color: #000000;
 	font-weight: normal;
 }
@@ -32,7 +30,7 @@ h3 {
 	font-weight: 600;
 	text-transform: uppercase;
 }
-.krasnodar {
+.studio-info .studio-info-title {
 	font-size: 45px;
 	font-family: "Roboto", "Arial", sans-serif;
 	line-height: 45px;
@@ -61,15 +59,10 @@ p {
 .container {
 	width: 1160px;
 	margin: 0 auto;
+  padding: 0 20px;
 }
 .main-header {
 	background-color: #eeeeee;
-}
-.main-title {
-	display: none;
-}
-.nav-catalog {
-	position: relative;
 }
 .logo {
 	float: left;
@@ -105,14 +98,13 @@ a {
 	vertical-align: top;
 	margin-right: 47px;
 	font-size: 16px;
-	font-family: "Roboto", sans-serif;
+	font-family: "Roboto", "Arial", sans-serif;
 	line-height: 30px;
 	color: #000000;
 	font-weight: 500;
 	text-transform: uppercase;
 }
-.main-navigation a,
-.basket a {
+.main-navigation a {
 	display: block;
 	text-decoration: none;
 	color: #000000;
@@ -122,42 +114,47 @@ a {
 	border-bottom: 2px solid #fb565a;
 	margin-bottom: -2px;
 }
-.main-navigation a:hover,
-.basket a:hover {
+.main-navigation a:hover {
 	color: #fb565a;
 }
-.main-navigation a:active,
-.basket a:active {
+.main-navigation a:active {
 	color: #000000;
 	opacity: 0.3;
 	border-bottom: none;
 }
-.basket {
-	float: right;
-	max-width: 160px;
-	margin-right: 0;
-	margin-top: 75px;
-	font-size: 16px;
-	font-family: "Roboto", sans-serif;
+.shopping-block a {
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 16px;
+	font-family: "Roboto", "Arial", sans-serif;
 	line-height: 30px;
-	color: #000000;
-	font-weight: 500;
-	text-transform: uppercase;
+  color: #000000;
 }
-.cart {
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
+.shopping-block a:hover {
+  color: #fb565a;
 }
-.cart::before {
-	content: "";
-	position: absolute;
-	width: 15px;
-	height: 15px;
-	top: 7px;
-	left: -40px;
-	background: url("../img/sprite-icon.png") no-repeat;
-	background-position: -5px 0;
+.shopping-block a:active {
+  color: #000000;
+  opacity: 0.3;
+}
+.shopping-block {
+  height: 20px;
+  width: 120px;
+  position: relative;
+  float: right;
+  margin-top: 75px;
+  text-align: right;
+}
+.shopping-block::before {
+  content: "";
+  width: 30px;
+  height: 16px;
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  background-image: url(../img/sprite-icon.png);
+  background-repeat: no-repeat;
 }
 .slider {
 	position: relative;
@@ -255,8 +252,12 @@ a {
 .slide-text p {
 	margin-bottom: 39px;
 }
-.line-break {
+.slide-info {
 	white-space: pre-line;
+  color: #283136;
+  font-size: 16px;
+	font-family: "Roboto", sans-serif;
+	line-height: 24px;
 }
 .btn {
 	font-size: 16px;
@@ -276,7 +277,7 @@ a {
 }
 .btn:active {
 	box-shadow: inset 0 78px 0 rgba(215,55,59,0.5),
-				inset 0 3px 0 0 #c13135;
+	inset 0 3px 0 0 #c13135;
 	color: rgba(255,255,255,0.3);
 }
 .service {
@@ -306,6 +307,7 @@ a {
 	margin-bottom: 32px;
 	padding-left: 1px;
 	padding-right: 45px;
+  color: #283136;
 }
 .service-item h2 {
 	margin-bottom: 16px;
@@ -323,7 +325,7 @@ a {
 }
 .service-btn-green:active {
 	box-shadow: inset 0 3px 0 0 #009958,
-				inset 0 78px 0 rgba(0,170,98,1);
+	inset 0 78px 0 rgba(0,170,98,1);
 	color: rgba(255,255,255,0.3);
 }
 .service-btn-yellow {
@@ -335,7 +337,7 @@ a {
 }
 .service-btn-yellow:active {
 	box-shadow: inset 0 3px 0 0 #ce961f,
-				inset 0 78px 0 rgba(229,167,34,1);
+	inset 0 78px 0 rgba(229,167,34,1);
 	color: rgba(255,255,255,0.3);
 }
 .studio {
@@ -346,15 +348,12 @@ a {
 	float: left;
 	margin-top: 75px;
 	margin-right: 140px;
-	width: 660px;
+	width: 665px;
 	padding-bottom: 24px;
-}
-.studio-info .krasnodar {
-	margin-bottom: 31px;
-	letter-spacing: 0.1px;
 }
 .studio-info p {
 	margin-bottom: 40px;
+  color: #283136;
 }
 .studio-info h3 {
 	margin-bottom: 24px;
@@ -367,6 +366,7 @@ a {
 	padding-left: 36px;
 	list-style-type: none;
 	margin-bottom: 24px;
+  color: #283136;
 }
 .studio-info li:last-child {
 	margin-bottom: 0;
@@ -383,7 +383,7 @@ a {
 .studio-features {
 	float: right;
 	margin-top: 40px;
-	width: 360px;
+	width: 355px;
 	padding-bottom: 24px;
 }
 .logo-img {
@@ -401,6 +401,9 @@ a {
 	font-size: 16px;
 	line-height: 18px;
 	margin-right: 15px;
+}
+.features-item p {
+  color: #283136;
 }
 .features-item:last-child {
 	margin-right: 0;
@@ -622,7 +625,7 @@ h2.title {
 }
 .social-btn:active {
 	box-shadow: inset 0 3px 0 0 #c13135,
-				inset 0 78px 0 rgba(215,55,59,0.7);
+	inset 0 78px 0 rgba(215,55,59,0.7);
 }
 .social-btn-vk {
 	background-position: 26px -85px;
@@ -851,7 +854,7 @@ input[type="checkbox"]:checked + .checkbox-indicator::before {
 }
 input[type="checkbox"]:checked + .checkbox-indicator::before {
 	-webkit-transform: rotate(-45deg);
-	        transform: rotate(-45deg);
+	transform: rotate(-45deg);
 }
 input[type="checkbox"]:checked + .checkbox-indicator::after {
 	content: "";
@@ -904,7 +907,7 @@ input[type="checkbox"]:disabled ~ .title-checkbox {
 }
 .submit:active {
 	box-shadow: inset 0 3px 0 0#bfbfbf,
-				inset 0 50px 0 0 rgba(213,213,213,1);
+	inset 0 50px 0 0 rgba(213,213,213,1);
 	outline: none;
 	color: rgba(0,0,0,0.3);
 }
@@ -1124,7 +1127,7 @@ h3.template {
 }
 .pagination a:active {
 	box-shadow: inset 0 3px 0 0#bfbfbf,
-				inset 0 50px 0 0 rgba(213,213,213,1);
+	inset 0 50px 0 0 rgba(213,213,213,1);
 	color: rgba(0,0,0,0.3);
 }
 .pagination .current {
